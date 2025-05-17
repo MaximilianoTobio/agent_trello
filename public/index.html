@@ -1,0 +1,32 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blueprintfy Power-Up</title>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    <h2>Power-Up Blueprintfy Activo</h2>
+    <script>
+      const t = TrelloPowerUp.iframe();
+
+      window.TrelloPowerUp.initialize({
+        "board-buttons": function (t, options) {
+          return [
+            {
+              icon: "https://cdn-icons-png.flaticon.com/512/149/149852.png",
+              text: "Generar Sprint",
+              callback: function (t) {
+                return t.popup({
+                  title: "Generar Sprint",
+                  url: "./popup.html",
+                  height: 200,
+                });
+              },
+            },
+          ];
+        },
+      });
+    </script>
+  </body>
+</html>
