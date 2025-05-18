@@ -29,6 +29,15 @@ def crear_lista(id_tablero, nombre_lista):
     response = requests.post(url, params=params)
     return response.json()
 
+def borrar_tablero(id_tablero):
+    url = f"{BASE_URL}/boards/{id_tablero}"
+    params = {
+        'key': API_KEY,
+        'token': TOKEN
+    }
+    response = requests.delete(url, params=params)
+    return response.status_code == 200
+
 if __name__ == "__main__":
     tablero = crear_tablero("Agente Trello - Sprint Test")
     print("Tablero creado:", tablero["url"])
